@@ -1,3 +1,4 @@
+
 //
 //  LoginView.swift
 //  ToDoList
@@ -8,10 +9,50 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // Header
+            HeaderView()
+            // Login Form
+            Form{
+                TextField("Email...", text:$email)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                TextField("Password...", text:$password)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                
+                // Login Button
+                Button {
+                    // Attent Login
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color.blue)
+                        
+                        Text("Login ")
+                            .foregroundColor(Color.white)
+                            .bold()
+                    }
+                    
+                }
+            }
+            
+            // Create a account
+            VStack{
+                Text("New Arround here ?")
+                Button("Create an Acount") {
+                    // Show registation
+                }
+            }
+            .padding(.bottom, 50)
+            
+            Spacer()
+        }
     }
 }
+
 
 #Preview {
     LoginView()
